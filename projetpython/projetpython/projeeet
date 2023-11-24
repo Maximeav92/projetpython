@@ -1,0 +1,37 @@
+import os
+def list_of_files(directory, extension):
+    files_names = []
+    for filename in os.listdir(directory):
+        if filename.endswith(extension):
+            files_names.append(filename)
+    return files_names
+directory = "./speeches"
+files_names = list_of_files(directory, "txt")
+print(files_names)
+
+def extraire_noms_presidents():
+    fichiers = os.listdir("speeches")
+    noms_presidents = set()
+    for fichier in fichiers:
+        parties = fichier.split("_")
+        a = parties[1]
+        parties = a.split(".")
+        nom_president = parties[0]
+        for i in nom_president:
+            if i.isdigit() == True:
+                nom_president = nom_president[0:-1]
+        noms_presidents.add(nom_president)
+    print("Noms des présidents :", list(noms_presidents))
+print(extraire_noms_presidents())
+
+def associer_prenom():
+    nom_presidents = extraire_noms_presidents()
+    for i in nom_presidents:
+        if i == 'Mitterrand':
+
+
+
+
+
+
+
